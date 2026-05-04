@@ -61,6 +61,7 @@ function App() {
       {activeTab === 'mouse' && <MousePrecision onGameComplete={addXp} />}
 
       {activeTab === 'cbt' && <CBTPlayer examData={sampleExam} onFinish={handleCBTFinish} />}
+        {activeTab === 'fundi' && <FundiChat />}
       
     </div>
   );
