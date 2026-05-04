@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FundiChat from './components/FundiChat';
 // --- ZONE 1: IMPORTS ---
 import GrowthTree from './components/GrowthTree';
 import KeyboardGame from './components/KeyboardGame';
@@ -43,6 +44,7 @@ function App() {
           <button onClick={() => setActiveTab('keyboard')}>⌨️ Typing</button>
           <button onClick={() => setActiveTab('mouse')}>🖱️ Mouse Lab</button>
           <button onClick={() => setActiveTab('cbt')}>📝 Take Exam</button>
+  <button onClick={() => setActiveTab('fundi')}>🛠️ Ask Fundi</button>
         </nav>
       </header>
 
