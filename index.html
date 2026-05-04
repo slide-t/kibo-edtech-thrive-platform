@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KidVentor Learning Ecosystem</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0b1d26;
+  color: #fff;
+}header { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: #001219; position: sticky; top: 0; }
+
+header h1 { color: gold; }
+
+nav a { margin: 0 10px; color: #fff; text-decoration: none; }
+
+.hero { text-align: center; padding: 60px 20px; }
+
+.hero h2 { font-size: 2rem; }
+
+.dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+
+.card { background: #142f3d; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s; }
+
+.card:hover { transform: scale(1.05); }
+
+.progress { height: 10px; background: #333; border-radius: 10px; margin-top: 10px; }
+
+.progress div { height: 100%; background: gold; border-radius: 10px; }
+
+button { margin-top: 10px; padding: 10px; border: none; background: gold; color: #000; border-radius: 8px; cursor: pointer; }
+
+footer { text-align: center; padding: 20px; background: #001219; } </style>
+
+</head>
+<body><header>
+  <h1>KidVentor</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Dashboard</a>
+    <a href="#">Games</a>
+    <a href="#">Library</a>
+  </nav>
+</header><section class="hero">
+  <h2>Learn • Play • Grow</h2>
+  <p>Reading + Games + Skills = Future Success</p>
+</section><section class="dashboard">
+  <div class="card">
+    <h3>📚 Reading Progress</h3>
+    <p>Today's Reading</p>
+    <div class="progress"><div style="width:60%"></div></div>
+    <button>Continue Reading</button>
+  </div>  <div class="card">
+    <h3>🎮 Skill Games</h3>
+    <p>Improve your keyboard & mouse skills</p>
+    <button>Play Game</button>
+  </div>  <div class="card">
+    <h3>🧠 CBT Test</h3>
+    <p>Take a quick test</p>
+    <button>Start Test</button>
+  </div>  <div class="card">
+    <h3>💻 Coding Lab</h3>
+    <p>Learn HTML & logic</p>
+    <button>Start Coding</button>
+  </div>  <div class="card">
+    <h3>🏆 Rewards</h3>
+    <p>Points: 1200</p>
+    <button>View Rewards</button>
+  </div>  <div class="card">
+    <h3>💬 Chat</h3>
+    <p>Talk with classmates</p>
+    <button>Open Chat</button>
+  </div>
+</section><footer>
+  <p>© 2026 KidVentor Learning Ecosystem</p>
+</footer></body>
+</html>
