@@ -1,26 +1,42 @@
 import React, { useState } from 'react';
 import GrowthTree from './components/GrowthTree';
 import KeyboardGame from './components/KeyboardGame';
+import MousePrecision from './components/MousePrecision';
 
 function App() {
-  const [userXp, setUserXp] = useState(100); // Starting XP
+  const [userXp, setUserXp] = useState(100);
+  const [activeTab, setActiveTab] = useState('tree');
 
-  const handleGameComplete = (earnedXp) => {
-    setUserXp(prev => prev + earnedXp); // Add XP to the tree!
-    alert(`Brilliant! You earned ${earnedXp} XP and your tree just grew!`);
+  const addXp = (amount) => {
+    setUserXp(prev => prev + amount);
+    setActiveTab('tree'); // Return to tree to see growth
   };
 
   return (
-    <div style={{ padding: '40px', fontFamily: 'sans-serif' }}>
-      <h1>KIBO Ecosystem Staging</h1>
-      
-      <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-        {/* The Visual Growth */}
-        <GrowthTree xp={userXp} lastActive={Date.now()} />
+    <div style={{ padding: '20px', maxWidth: '900px', margin: 'auto', textAlign: 'center' }}>
+      <header style={{ marginBottom: '30px', borderBottom: '2px solid #eee', paddingBottom: '10px' }}>
+        <h1 style={{ color: '#2c3e50' }}>KIBO ECOSYSTEM <span style={{fontSize: '0.5em'}}>v1.0 Staging</span></h1>
+        <nav>
+          <button onClick={() => setActiveTab('tree')}>My Growth Tree</button>
+          <button onClick={() => setActiveTab('keyboard')}>Keyboard Quest</button>
+          <button onClick={() => setActiveTab('mouse')}>Mouse Lab</button>
+        </nav>
+      </header>
 
-        {/* The Action/Task */}
-        <KeyboardGame onGameComplete={handleGameComplete} />
-      </div>
+      {activeTab === 'tree' && (
+        <div className="fade-in">
+          <h2>Total Experience: {userXp} XP</h2>
+          <GrowthTree xp={userXp} lastActive={Date.now()} />
+        </div>
+      )}
+
+      {activeTab === 'keyboard' && (
+        <KeyboardGame onGameComplete={addXp} />
+      )}
+
+      {activeTab === 'mouse' && (
+        <MousePrecision onGameComplete={addXp} />
+      )}
     </div>
   );
 }
