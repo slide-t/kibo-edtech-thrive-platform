@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LandingPage from './components/LandingPage'; // Import the new Landing Page
+import ProprietorRegister from './components/ProprietorRegister'; // Import new component
 import GrowthTree from './components/GrowthTree';
 import KeyboardGame from './components/KeyboardGame';
 import MousePrecision from './components/MousePrecision';
@@ -17,6 +18,7 @@ const sampleExam = {
 function App() {
   const [userXp, setUserXp] = useState(100);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // New state to check if user entered
+  const [isRegistering, setIsRegistering] = useState(false); // New state
   const [activeTab, setActiveTab] = useState('tree');
 
   const addXp = (amount) => {
@@ -29,10 +31,17 @@ function App() {
     addXp(earnedXp);
     alert(`Exam Finished! You scored ${score}% and earned ${earnedXp} XP.`);
   };
+  // 1. IF REGISTERING, SHOW REGISTRATION FORM
+  if (isRegistering) {
+    return <ProprietorRegister onBack={() => setIsRegistering(false)} />;
+  }
 
   // IF NOT LOGGED IN, SHOW LANDING PAGE
   if (!isLoggedIn) {
-    return <LandingPage onEnter={() => setIsLoggedIn(true)} />;
+    return ( <LandingPage onEnter={() => setIsLoggedIn(true)} 
+      onRegister={() => setIsRegistering(true)} // Pass the register function 
+      />
+        );
   }
 
   // IF LOGGED IN, SHOW THE DASHBOARD
